@@ -1,0 +1,42 @@
+{
+  "name": "eds-accs-mesh",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "description": "Adobe API Mesh for EDS Commerce storefronts with ACCS backend - passthrough configuration with caching",
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@adobe/aio-cli": "^10.0.0",
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2"
+  },
+  "scripts": {
+    "build": "node scripts/build-mesh.js",
+    "create": "npm run build && aio api-mesh:create mesh.json",
+    "update": "npm run build && aio api-mesh:update mesh.json",
+    "status": "aio api-mesh:status",
+    "describe": "aio api-mesh:describe",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}

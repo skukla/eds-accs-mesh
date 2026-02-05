@@ -1,0 +1,4 @@
+node_modules
+mesh.json
+build
+package-lock.json
