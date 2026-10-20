@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # engines: node >=18. No package-lock.json in this repo, so no npm cache
-      # and `npm install` instead of `npm ci`.
+      # engines: node >=18. Installs exactly what package-lock.json pins.
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       - name: Lint
         run: npm run lint
