@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* global setTimeout */
 
 /**
  * Build script to convert mesh.config.js to mesh.json

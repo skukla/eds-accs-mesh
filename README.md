@@ -13,12 +13,12 @@ This mesh provides a **simplified passthrough configuration** for ACCS-backed ED
 
 ## ACCS vs PaaS
 
-| Aspect                | PaaS (eds-commerce-mesh)                      | ACCS (this mesh)          |
-| --------------------- | --------------------------------------------- | ------------------------- |
-| **Sources**           | 2 (CommerceGraphQL + CatalogService)          | 1 (ACCS supergraph)       |
-| **Catalog Service**   | Separate endpoint with x-api-key              | Built into supergraph     |
-| **Headers**           | x-api-key, Magento-Environment-Id, etc.       | Store codes only          |
-| **Query transforms**  | Filters products/categories from Commerce     | None needed               |
+| Aspect               | PaaS (eds-commerce-mesh)                  | ACCS (this mesh)      |
+| -------------------- | ----------------------------------------- | --------------------- |
+| **Sources**          | 2 (CommerceGraphQL + CatalogService)      | 1 (ACCS supergraph)   |
+| **Catalog Service**  | Separate endpoint with x-api-key          | Built into supergraph |
+| **Headers**          | x-api-key, Magento-Environment-Id, etc.   | Store codes only      |
+| **Query transforms** | Filters products/categories from Commerce | None needed           |
 
 ## Quick Start
 
