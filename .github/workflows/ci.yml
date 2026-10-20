@@ -1,0 +1,32 @@
+# Runs only checks that need no credentials and nothing that deploys.
+# No aio login, no API Mesh create/update: `build` only writes mesh.json locally.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # engines: node >=18. No package-lock.json in this repo, so no npm cache
+      # and `npm install` instead of `npm ci`.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Build mesh.json (local file only)
+        run: npm run build -- --force
