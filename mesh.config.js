@@ -39,6 +39,9 @@ module.exports = {
             endpoint: '{env.ACCS_GRAPHQL_ENDPOINT}',
             operationHeaders: {
               'Content-Type': 'application/json',
+              // Without this a signed-in shopper reaches Commerce as a guest: no account, no company,
+              // the guest's prices. Measured on ACCS 2026-11-01. The other two meshes already send it.
+              Authorization: "{context.headers['authorization']}",
               Store: "{context.headers['store']}",
               'Magento-Website-Code': "{context.headers['magento-website-code']}",
               'Magento-Store-View-Code': "{context.headers['magento-store-view-code']}",
