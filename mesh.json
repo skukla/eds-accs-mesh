@@ -1,0 +1,46 @@
+{
+  "meshConfig": {
+    "responseConfig": {
+      "cache": true,
+      "includeHTTPDetails": true,
+      "CORS": {
+        "credentials": true,
+        "exposedHeaders": [
+          "Content-Range",
+          "X-Content-Range"
+        ],
+        "maxAge": 60480,
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "origin": "*"
+      }
+    },
+    "sources": [
+      {
+        "name": "ACCSGraphQL",
+        "handler": {
+          "graphql": {
+            "endpoint": "{env.ACCS_GRAPHQL_ENDPOINT}",
+            "operationHeaders": {
+              "Content-Type": "application/json",
+              "Authorization": "{context.headers['authorization']}",
+              "Store": "{context.headers['store']}",
+              "Magento-Website-Code": "{context.headers['magento-website-code']}",
+              "Magento-Store-View-Code": "{context.headers['magento-store-view-code']}",
+              "Magento-Store-Code": "{context.headers['magento-store-code']}",
+              "Magento-Customer-Group": "{context.headers['magento-customer-group']}"
+            },
+            "schemaHeaders": {
+              "Content-Type": "application/json",
+              "Magento-Website-Code": "{env.ACCS_WEBSITE_CODE}",
+              "Magento-Store-View-Code": "{env.ACCS_STORE_VIEW_CODE}",
+              "Magento-Store-Code": "{env.ACCS_STORE_CODE}"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
