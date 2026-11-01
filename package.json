@@ -1,6 +1,6 @@
 {
   "name": "eds-accs-mesh",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "private": true,
   "description": "Adobe API Mesh for EDS Commerce storefronts with ACCS backend - passthrough configuration with caching",
   "dependencies": {
