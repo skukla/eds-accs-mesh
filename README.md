@@ -95,3 +95,5 @@ ACCS_STORE_VIEW_CODE=default
 ## License
 
 Private - All rights reserved
+
+**Releasing:** a push to `main` reaches nobody; a published release does. See [RELEASING.md](RELEASING.md).
